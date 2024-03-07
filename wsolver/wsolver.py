@@ -1,8 +1,9 @@
 from ctypes import *
+from os import path
 
 # document: http://www.fangchengzu.com/document
 
-solver_lib = cdll.LoadLibrary('lib/x64/solver.dll')
+solver_lib = cdll.LoadLibrary(path.join(path.dirname(path.realpath(__file__)), 'lib/x64/solver.dll'))
 
 solver_lib.NewEquationSystem.argtypes = []
 solver_lib.NewEquationSystem.restype = c_void_p
